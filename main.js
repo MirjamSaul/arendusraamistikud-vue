@@ -4,7 +4,9 @@ const app = Vue.createApp({
         data() {
         return {
             product: 'Sokid',
-            productDescription: 'Need on väga head'
+            image: './assets/images/socks_blue.jpg',
+            productDescription: 'Need on väga head',
+            url:'https://sokid.ee/'
         }
     }
 })
