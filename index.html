@@ -21,6 +21,10 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <p v-show="onSale">Soodusmüük!</p>
+            <p v-if="inventory > 10">Laos</p>
+            <p v-else-if="inventory <= 10 &&inventory > 0">Peaaegu otsas</p>
+            <p v-else>Otsas</p>
             <a v-bind:href="url">Sokid</a>
           </div>
           <div>
