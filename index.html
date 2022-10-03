@@ -21,6 +21,15 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <p>Suurused</p>
+            <ul>
+              <li v-for="size in sizes">{{ size }}</li>
+            </ul>
+            <p>Värvid</p>
+            <div v-for="variant in variants" :key="variant.id">{{ variant.color }}</div>
             <p v-show="onSale">Soodusmüük!</p>
             <p v-if="inventory > 10">Laos</p>
             <p v-else-if="inventory <= 10 &&inventory > 0">Peaaegu otsas</p>
