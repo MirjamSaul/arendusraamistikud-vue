@@ -34,10 +34,8 @@ body {
 
 .removeButton {
   margin: 30px;
-  position: absolute;
-  right: 70px;
-  top: 200px;
-  background-color: #39495c;
+  
+  background-color: #b70e0e;
   border-radius: 5px;
   font-size: 14px;
   width: 120px;
