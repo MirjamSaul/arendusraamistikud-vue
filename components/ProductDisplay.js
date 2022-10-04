@@ -44,6 +44,8 @@ app.component('product-display', {
       <button class="button" :disabled="!inStock" :class="{ disabledButton: !inStock }" @click="addToCart">Osta</button>
       <button class="removeButton" @click="removeFromCart">Eemalda</button>
     </div>
+    <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+    <review-form @review-submitted="addReview"></review-form>
   </div>`,
   data() {
     return {
@@ -60,6 +62,7 @@ app.component('product-display', {
             { id:1112, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50 },
             { id:1113, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
         ],
+        reviews: [],
         sizes: ['37-39', '40-42', '43-45'],
         url:'https://sokid.ee/'
 
@@ -72,6 +75,9 @@ methods: {
     updateVariant(index) {
         this.selectedVariant = index
         
+    },
+    addReview(review) {
+        this.reviews.push(review)
     },
     removeFromCart() {
         this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
