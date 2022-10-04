@@ -8,6 +8,7 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
+
   <body>
     <div id="app">
       <div class="nav-bar">
@@ -16,12 +17,12 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-
             <!--attribute binding-->
             <img v-bind:src="image" :class="{ 'out-of-stock-img': !inStock }">
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1>{{ title }}</h1>
+            <p v-if="onSale">{{ saleMessage }}</p>
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
@@ -31,13 +32,13 @@
             </ul>
 
             <p>Värvid</p>
-            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="color-circle" :style="{ backgroundColor: variant.color }">
+            <div v-for="(variant, index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{ backgroundColor: variant.color }">
             </div>
 
             <p v-show="onSale">Soodusmüük!</p>
             
-            <p v-if="inventory > 10">Laos</p>
-            <p v-else-if="inventory <= 10 &&inventory > 0">Peaaegu otsas</p>
+            <p v-if="inStock">Laos</p>
+            <!--<p v-else-if="variants.quantity <= 10 variants.quantity > 0">Peaaegu otsas</p>-->
             <p v-else>Otsas</p>
 
             <a v-bind:href="url">Sokid</a>
