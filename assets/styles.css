@@ -32,6 +32,22 @@ body {
   box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
 }
 
+.removeButton {
+  margin: 30px;
+  position: absolute;
+  right: 70px;
+  top: 200px;
+  background-color: #39495c;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 120px;
+  height: 50px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .color-circle {
   width: 50px;
   height: 50px;

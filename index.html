@@ -18,7 +18,7 @@
           <div class="product-image">
 
             <!--attribute binding-->
-            <img v-bind:src="image">
+            <img v-bind:src="image" :class="{ 'out-of-stock-img': !inStock }">
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
@@ -29,19 +29,24 @@
             <ul>
               <li v-for="size in sizes">{{ size }}</li>
             </ul>
+
             <p>Värvid</p>
-            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="color-circle" :style="{ backgroundColor: variant.color }">
+            </div>
+
             <p v-show="onSale">Soodusmüük!</p>
+            
             <p v-if="inventory > 10">Laos</p>
             <p v-else-if="inventory <= 10 &&inventory > 0">Peaaegu otsas</p>
             <p v-else>Otsas</p>
+
             <a v-bind:href="url">Sokid</a>
           </div>
           <div>
             <p>Tootekirjeldus: {{ productDescription }}</p>
           </div>
-          <button class="button" @click="addToCart">Osta</button>
-          <button class="button" @click="removeFromCart">Eemalda</button>
+          <button class="button" :disabled="!inStock" :class="{ disabledButton: !inStock }" @click="addToCart">Osta</button>
+          <button class="removeButton" @click="removeFromCart">Eemalda</button>
          
         </div>
       </div>

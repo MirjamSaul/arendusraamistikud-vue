@@ -7,13 +7,13 @@ const app = Vue.createApp({
             product: 'Sokid',
             image: './assets/images/socks_blue.jpg',
             productDescription: 'Need on väga head',
-            //inStock: false,
-            inventory: 8,
+            inStock: false,
+            inventory: 0,
             onSale: true,
             details: ['50% puuvill', '30% vill', '20% mohäär'],
             variants: [
-                { id:1112, color: 'roheline', image: './assets/images/socks_green.jpg' },
-                { id:1113, color: 'sinine', image: './assets/images/socks_blue.jpg' },
+                { id:1112, color: 'green', image: './assets/images/socks_green.jpg' },
+                { id:1113, color: 'blue', image: './assets/images/socks_blue.jpg' },
             ],
             sizes: ['37-39', '40-42', '43-45'],
             url:'https://sokid.ee/'
